@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraLife - Live Better, Every Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --card-bg: #161616;
+            --primary-orange: #ff5722;
+            --gradient-orange: linear-gradient(135deg, #ff7e5f, #feb47b);
+            --text-light: #ffffff;
+            --text-muted: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        /* Features Grid */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-orange);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-orange);
+        }
+
+        .card-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: linear-gradient(to top, #1a0b00, var(--bg-dark));
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px solid var(--primary-orange);
+        }
+
+        .price-tag {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gradient-orange);
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <h1 class="logo-text">AuraLife</h1>
+            <p class="tagline">Live Better, Every Day <br> แอปดูแลสุขภาพครบวงจรด้วย AI ที่จะทำให้การมีสุขภาพดี...ง่ายกว่าที่เคย</p>
+        </header>
+
+        <h2 class="section-title">5 ฟีเจอร์เด่น ที่จะเปลี่ยนชีวิตคุณ</h2>
+        <div class="features-grid">
+            <div class="card">
+                <div class="card-number">1</div>
+                <h3>AI Food Vision & Seamless Delivery</h3>
+                <p>AI วิเคราะห์อาหารอย่างละเอียด คำนวณโควตาแบบ Real-time และสั่งอาหารผ่าน LINE MAN หรือ Grab Food ได้ทันที</p>
+            </div>
+            <div class="card">
+                <div class="card-number">2</div>
+                <h3>Virtual AI Coach "Aura"</h3>
+                <p>โค้ชส่วนตัวแบบ Voice-Activated พูดคุยด้วยเสียงได้ทุกเรื่องสุขภาพ พร้อมดูแลคุณ 24 ชั่วโมง</p>
+            </div>
+            <div class="card">
+                <div class="card-number">3</div>
+                <h3>Behavioral Trigger & Micro-Workouts</h3>
+                <p>AI เรียนรู้พฤติกรรมและแจ้งเตือนรู้ใจ พร้อม Micro-Workout สั้นๆ เพียง 5 นาที</p>
+            </div>
+            <div class="card">
+                <div class="card-number">4</div>
+                <h3>Standardize & Human-in-the-Loop</h3>
+                <p>วิเคราะห์ข้อมูลสุขภาพด้วย AI และส่งต่อให้ทีมแพทย์และผู้เชี่ยวชาญตัวจริงให้คำแนะนำ</p>
+            </div>
+            <div class="card">
+                <div class="card-number">5</div>
+                <h3>Gamification & Loyalty Rewards</h3>
+                <p>ยิ่งมีวินัย ยิ่งได้กำไร สะสม Streak และเหรียญรางวัล แลกส่วนลดค่าอาหารได้จริง</p>
+            </div>
+        </div>
+
+        <div class="pricing-section">
+            <h2>แพ็กเกจพรีเมียม</h2>
+            <p>เริ่มต้นการเปลี่ยนแปลงที่ดีขึ้นในทุกๆ วัน</p>
+            <div class="price-tag">299 <span style="font-size: 1.5rem;">บาท / เดือน</span></div>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">✓ AI อัจฉริยะวิเคราะห์แม่นยำ ✓ โค้ชส่วนตัวออร่า ✓ แผนเฉพาะคุณ ✓ สิทธิพิเศษ & Rewards</p>
+            <a href="#" class="btn">สมัครเลย 299 บาท / เดือน</a>
+        </div>
+
+        <footer>
+            <p>"สุขภาพดี ไม่ใช่เรื่องยาก" ให้ AuraLife ดูแลคุณในทุกก้าวของชีวิต</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 AuraLife. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
