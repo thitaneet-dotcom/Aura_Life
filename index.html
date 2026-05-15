@@ -28,6 +28,91 @@
             line-height: 1.6;
         }
 
+        /* === แถบเมนูด้านบน (Navbar & Dropdown) === */
+        .navbar {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-orange);
+        }
+
+        /* กล่อง Dropdown */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            border-radius: 8px;
+            list-style: none;
+            overflow: hidden;
+            z-index: 101;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-link {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown-link:hover {
+            background-color: #222;
+            color: var(--primary-orange);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -179,7 +264,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(5px);
-            overflow-y: auto; /* ให้สามารถเลื่อนดูได้ถ้าเนื้อหายาว */
+            overflow-y: auto;
         }
 
         .modal-content {
@@ -194,7 +279,6 @@
             animation: modalFadeIn 0.4s ease;
         }
 
-        /* ปรับขนาด Modal สำหรับฟอร์มให้เล็กกว่า Modal ฟีเจอร์ปกติ */
         .modal-form-content {
             max-width: 500px;
         }
@@ -256,7 +340,6 @@
             box-shadow: 0 0 5px rgba(255, 87, 34, 0.5);
         }
 
-        /* ปรับสีไอคอนปฏิทินในช่องวันที่ให้เข้ากับ Dark Mode */
         ::-webkit-calendar-picker-indicator {
             filter: invert(1);
             cursor: pointer;
@@ -294,6 +377,36 @@
     </style>
 </head>
 <body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">AuraLife</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link">ฟีเจอร์เด่น ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal1')">1. AI Food Vision</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal2')">2. Virtual AI Coach</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal3')">3. Micro-Workouts</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal4')">4. ทีมแพทย์ผู้เชี่ยวชาญ</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal5')">5. Rewards & สิทธิพิเศษ</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">แพ็กเกจ ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-link" onclick="openModal('subscribeModal')">สมัครแพ็กเกจพรีเมียม</a></li>
+                    <li><a href="#" class="dropdown-link">สำหรับลูกค้าองค์กร</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">เกี่ยวกับเรา ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-link">มาตรฐานความปลอดภัย</a></li>
+                    <li><a href="#" class="dropdown-link">ติดต่อทีมงาน</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
     <div class="container">
         <header class="hero">
@@ -340,7 +453,6 @@
             <p>เริ่มต้นการเปลี่ยนแปลงที่ดีขึ้นในทุกๆ วัน</p>
             <div class="price-tag">299 <span style="font-size: 1.5rem;">บาท / เดือน</span></div>
             <p style="margin-bottom: 30px; color: var(--text-muted);">✓ AI อัจฉริยะวิเคราะห์แม่นยำ ✓ โค้ชส่วนตัวออร่า ✓ แผนเฉพาะคุณ ✓ สิทธิพิเศษ & Rewards</p>
-            <!-- เปลี่ยนจาก <a> เป็นปุ่มที่กดแล้วเรียก Modal สมัครแพ็กเกจ -->
             <button class="btn" onclick="openModal('subscribeModal')">สมัครเลย 299 บาท / เดือน</button>
         </div>
 
@@ -350,7 +462,6 @@
         </footer>
     </div>
 
-    <!-- === Modal แบบฟอร์มสมัครแพ็กเกจ === -->
     <div id="subscribeModal" class="modal">
         <div class="modal-content modal-form-content">
             <span class="close-btn" onclick="closeModal('subscribeModal')">&times;</span>
@@ -359,19 +470,15 @@
                 <p style="color: var(--text-muted); margin-bottom: 20px;">แพ็กเกจพรีเมียม 299 บาท / เดือน</p>
             </div>
             <div class="modal-body">
-                <!-- เพิ่ม onsubmit เพื่อจำลองการส่งข้อมูล -->
                 <form action="#" method="POST" onsubmit="submitForm(event)">
-                    
                     <div class="form-group">
                         <label for="nickname">ชื่อเล่น</label>
                         <input type="text" id="nickname" class="form-control" placeholder="กรอกชื่อเล่นของคุณ" required>
                     </div>
-
                     <div class="form-group">
                         <label for="phone">เบอร์โทรศัพท์</label>
                         <input type="tel" id="phone" class="form-control" placeholder="08X-XXX-XXXX" pattern="[0-9]{10}" title="กรุณากรอกเบอร์โทรศัพท์ 10 หลัก" required>
                     </div>
-
                     <div class="form-group">
                         <label for="gender">เพศ</label>
                         <select id="gender" class="form-control" required>
@@ -381,25 +488,101 @@
                             <option value="other">อื่นๆ / ไม่ระบุ</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="dob">วัน/เดือน/ปีเกิด</label>
                         <input type="date" id="dob" class="form-control" required>
                     </div>
-
                     <div class="form-group">
                         <label for="email">อีเมล (Email)</label>
                         <input type="email" id="email" class="form-control" placeholder="example@email.com" required>
                     </div>
-
                     <button type="submit" class="btn btn-submit">ยืนยันการสมัคร</button>
                 </form>
             </div>
         </div>
     </div>
-    <!-- ==================================== -->
+    <div id="textModal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('textModal1')">&times;</span>
+            <div class="modal-header">
+                <h2>1. AI Food Vision & Seamless Delivery</h2>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>อัปโหลด / ถ่ายภาพอาหาร (AI Food Vision):</strong> ถ่ายรูปหรืออัปโหลดรูปอาหารเพื่อให้ AI สแกน</li>
+                    <li><strong>AI วิเคราะห์โภชนาการ:</strong> ระบบแยกส่วนประกอบอย่างละเอียด พร้อมคำนวณแคลอรี่และสารอาหารหลัก (โปรตีน, คาร์บ, ไขมัน)</li>
+                    <li><strong>ประเมินโควตา & เป้าหมาย:</strong> เปรียบเทียบแคลอรี่ที่ได้รับกับเป้าหมายรายวันแบบเรียลไทม์</li>
+                    <li><strong>แนะนำเมนูสุขภาพใกล้คุณ:</strong> AI แนะนำเมนูที่เหมาะสมกับเป้าหมายของคุณ จากร้านอาหารใกล้เคียง</li>
+                    <li><strong>สั่งอาหารได้ทันที (Seamless Delivery):</strong> เชื่อมต่อ LINE MAN และ GrabFood สั่งอาหารสุขภาพมาส่งถึงบ้านได้ในแตะเดียว</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <!-- === ชุดโค้ดหน้าต่าง Modal สำหรับแต่ละฟีเจอร์ (เหมือนเดิม) === -->
+    <div id="textModal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('textModal2')">&times;</span>
+            <div class="modal-header">
+                <h2>2. Virtual AI Coach "Aura"</h2>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>โค้ชออร่า คอยดูแลคุณ:</strong> โค้ชส่วนตัวระบบ Voice-Activated สื่อสารด้วยเสียงได้อย่างเป็นธรรมชาติ</li>
+                    <li><strong>แนะนำและปรับแผน:</strong> ให้คำแนะนำด้านโภชนาการและการออกกำลังกายที่เหมาะกับคุณ</li>
+                    <li><strong>ให้กำลังใจตลอด 24 ชม.:</strong> พร้อมให้กำลังใจและติดตามเป้าหมายอย่างใกล้ชิด เช่น "วันนี้เหลือโปรตีนอีก 20 กรัม ลองทานเมนูโปรตีนสูงดูนะคะ"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="textModal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('textModal3')">&times;</span>
+            <div class="modal-header">
+                <h2>3. Behavioral Trigger & Micro-Workouts</h2>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>บันทึก & ติดตามผล (Track & Progress):</strong> บันทึกข้อมูลอัตโนมัติ ติดตามความคืบหน้ารายวัน รายสัปดาห์ และรายเดือน</li>
+                    <li><strong>Behavioral Trigger:</strong> ระบบแจ้งเตือนที่เรียนรู้พฤติกรรมคุณ เพื่อกระตุ้นวินัยการดูแลสุขภาพ</li>
+                    <li><strong>Micro-Workouts:</strong> แนะนำการออกกำลังกายหรือการขยับร่างกายสั้นๆ ระหว่างวัน</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="textModal4" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('textModal4')">&times;</span>
+            <div class="modal-header">
+                <h2>4. Standardize & Human-in-the-Loop</h2>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>AI อัจฉริยะวิเคราะห์แม่นยำ:</strong> ระบบ AI ประมวลผลข้อมูลสุขภาพเบื้องต้นอย่างรวดเร็ว</li>
+                    <li><strong>ทีมผู้เชี่ยวชาญดูแล (Human-in-the-Loop):</strong> ข้อมูลสำคัญจะถูกส่งต่อและดูแลโดยทีมแพทย์หรือผู้เชี่ยวชาญตัวจริงเพื่อให้คำแนะนำที่ถูกต้องที่สุด</li>
+                    <li><strong>มาตรฐานความปลอดภัยระดับสูง (Hospital-Grade Security):</strong> ปลอดภัย ข้อมูลส่วนตัวของคุณถูกเข้ารหัสและรักษาความลับ 100%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="textModal5" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('textModal5')">&times;</span>
+            <div class="modal-header">
+                <h2>5. Gamification & Loyalty Rewards</h2>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>รับรางวัล & สิทธิพิเศษ (Rewards & Benefits):</strong> ทำตามเป้าหมายสุขภาพรายวันเพื่อรับคะแนนสะสม (Aura Coins)</li>
+                    <li><strong>สะสม Streak:</strong> สร้างวินัยต่อเนื่องเพื่อรับโบนัสพิเศษและเหรียญรางวัล</li>
+                    <li><strong>แลกส่วนลดได้จริง:</strong> นำคะแนนไปแลกเป็นคูปองส่วนลดหรือสิทธิพิเศษต่างๆ เช่น ส่วนลดค่าจัดส่ง LINE MAN หรือ GrabFood</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
@@ -409,11 +592,6 @@
             <div class="modal-body">
                 <img src="2. Ai food.jpg" alt="AI Food Vision">
                 <ul>
-                    <li><strong>อัปโหลด / ถ่ายภาพอาหาร (AI Food Vision):</strong> ถ่ายรูปหรืออัปโหลดรูปอาหารเพื่อให้ AI สแกน</li>
-                    <li><strong>AI วิเคราะห์โภชนาการ:</strong> ระบบแยกส่วนประกอบอย่างละเอียด พร้อมคำนวณแคลอรี่และสารอาหารหลัก (โปรตีน, คาร์บ, ไขมัน)</li>
-                    <li><strong>ประเมินโควตา & เป้าหมาย:</strong> เปรียบเทียบแคลอรี่ที่ได้รับกับเป้าหมายรายวันแบบเรียลไทม์</li>
-                    <li><strong>แนะนำเมนูสุขภาพใกล้คุณ:</strong> AI แนะนำเมนูที่เหมาะสมกับเป้าหมายของคุณ จากร้านอาหารใกล้เคียง</li>
-                    <li><strong>สั่งอาหารได้ทันที (Seamless Delivery):</strong> เชื่อมต่อ LINE MAN และ GrabFood สั่งอาหารสุขภาพมาส่งถึงบ้านได้ในแตะเดียว</li>
                 </ul>
             </div>
         </div>
@@ -428,9 +606,6 @@
             <div class="modal-body">
                 <img src="3. Virtual Ai.jpg" alt="Virtual AI Coach">
                 <ul>
-                    <li><strong>โค้ชออร่า คอยดูแลคุณ:</strong> โค้ชส่วนตัวระบบ Voice-Activated สื่อสารด้วยเสียงได้อย่างเป็นธรรมชาติ</li>
-                    <li><strong>แนะนำและปรับแผน:</strong> ให้คำแนะนำด้านโภชนาการและการออกกำลังกายที่เหมาะกับคุณ</li>
-                    <li><strong>ให้กำลังใจตลอด 24 ชม.:</strong> พร้อมให้กำลังใจและติดตามเป้าหมายอย่างใกล้ชิด เช่น "วันนี้เหลือโปรตีนอีก 20 กรัม ลองทานเมนูโปรตีนสูงดูนะคะ"</li>
                 </ul>
             </div>
         </div>
@@ -445,9 +620,6 @@
             <div class="modal-body">
                 <img src="4. Behavioral.jpg" alt="Track and Progress">
                 <ul>
-                    <li><strong>บันทึก & ติดตามผล (Track & Progress):</strong> บันทึกข้อมูลอัตโนมัติ ติดตามความคืบหน้ารายวัน รายสัปดาห์ และรายเดือน</li>
-                    <li><strong>Behavioral Trigger:</strong> ระบบแจ้งเตือนที่เรียนรู้พฤติกรรมคุณ เพื่อกระตุ้นวินัยการดูแลสุขภาพ</li>
-                    <li><strong>Micro-Workouts:</strong> แนะนำการออกกำลังกายหรือการขยับร่างกายสั้นๆ ระหว่างวัน</li>
                 </ul>
             </div>
         </div>
@@ -462,9 +634,6 @@
             <div class="modal-body">
                 <img src="5. Standardize.jpg" alt="Standardize and Human-in-the-Loop">
                 <ul>
-                    <li><strong>AI อัจฉริยะวิเคราะห์แม่นยำ:</strong> ระบบ AI ประมวลผลข้อมูลสุขภาพเบื้องต้นอย่างรวดเร็ว</li>
-                    <li><strong>ทีมผู้เชี่ยวชาญดูแล (Human-in-the-Loop):</strong> ข้อมูลสำคัญจะถูกส่งต่อและดูแลโดยทีมแพทย์หรือผู้เชี่ยวชาญตัวจริงเพื่อให้คำแนะนำที่ถูกต้องที่สุด</li>
-                    <li><strong>มาตรฐานความปลอดภัยระดับสูง (Hospital-Grade Security):</strong> ปลอดภัย ข้อมูลส่วนตัวของคุณถูกเข้ารหัสและรักษาความลับ 100%</li>
                 </ul>
             </div>
         </div>
@@ -479,15 +648,11 @@
             <div class="modal-body">
                 <img src="6. Loyalty.jpg" alt="Gamification and Rewards">
                 <ul>
-                    <li><strong>รับรางวัล & สิทธิพิเศษ (Rewards & Benefits):</strong> ทำตามเป้าหมายสุขภาพรายวันเพื่อรับคะแนนสะสม (Aura Coins)</li>
-                    <li><strong>สะสม Streak:</strong> สร้างวินัยต่อเนื่องเพื่อรับโบนัสพิเศษและเหรียญรางวัล</li>
-                    <li><strong>แลกส่วนลดได้จริง:</strong> นำคะแนนไปแลกเป็นคูปองส่วนลดหรือสิทธิพิเศษต่างๆ เช่น ส่วนลดค่าจัดส่ง LINE MAN หรือ GrabFood</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- === JavaScript === -->
     <script>
         // ฟังก์ชันเปิด Modal
         function openModal(modalId) {
@@ -511,10 +676,10 @@
 
         // ฟังก์ชันจำลองเมื่อกดปุ่ม Submit ฟอร์มสมัคร
         function submitForm(event) {
-            event.preventDefault(); // ป้องกันไม่ให้หน้าเว็บรีเฟรช
+            event.preventDefault(); 
             alert("ขอบคุณสำหรับการสมัครแพ็กเกจ AuraLife!\n\nเราได้รับข้อมูลของคุณเรียบร้อยแล้ว (นี่คือระบบจำลองการส่งข้อมูล)");
-            closeModal('subscribeModal'); // ปิดหน้าต่างฟอร์ม
-            event.target.reset(); // ล้างข้อมูลในฟอร์ม
+            closeModal('subscribeModal'); 
+            event.target.reset(); 
         }
     </script>
 </body>
