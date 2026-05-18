@@ -125,6 +125,7 @@
             padding: 40px 0 60px 0;
         }
 
+        /* สไตล์สำหรับรูปภาพหน้าปก */
         .hero-banner {
             width: 100%;
             max-width: 1000px;
@@ -207,7 +208,7 @@
             font-weight: 400;
         }
 
-        /* Pricing Section */
+        /* === Pricing Section === */
         .pricing-section {
             text-align: center;
             margin-top: 40px;
@@ -583,6 +584,9 @@
         <a href="#" class="nav-logo">AuraLife</a>
         <ul class="nav-menu">
             <li class="nav-item">
+                <a href="#" class="nav-link" onclick="openModal('overviewModal')">ภาพรวมผลิตภัณฑ์</a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link">ฟีเจอร์เด่น ▾</a>
                 <ul class="dropdown-menu">
                     <li><a href="#" class="dropdown-link" onclick="openModal('textModal1')">1. AI Food Vision & Seamless Delivery</a></li>
@@ -648,7 +652,6 @@
             <p style="color: var(--text-muted);">เลือกแผนที่ใช่ สำหรับเส้นทางสุขภาพที่เป็นคุณ</p>
             
             <div class="pricing-grid">
-                
                 <div class="pricing-card" style="border-color: #882b3a;">
                     <div class="pricing-header">
                         <h3 style="color: #ff4d6d;">BASIC</h3>
@@ -730,6 +733,19 @@
             <p>"สุขภาพดี ไม่ใช่เรื่องยาก" ให้ AuraLife ดูแลคุณในทุกก้าวของชีวิต</p>
             <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 AuraLife. All rights reserved.</p>
         </footer>
+    </div>
+
+
+    <div id="overviewModal" class="modal" style="z-index: 1002;">
+        <div class="modal-content" style="max-width: 95%; text-align: center; padding: 20px;">
+            <span class="close-btn" onclick="closeModal('overviewModal')">&times;</span>
+            <div class="modal-header">
+                <h2>ภาพรวมผลิตภัณฑ์ (Product Overview)</h2>
+            </div>
+            <div class="modal-body">
+                <img src="ฟีเจอร์.png" alt="ภาพรวมผลิตภัณฑ์ AuraLife" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 0;">
+            </div>
+        </div>
     </div>
 
     <div id="teamModal" class="modal" style="z-index: 1002;">
