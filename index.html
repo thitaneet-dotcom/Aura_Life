@@ -80,7 +80,7 @@
             top: 100%;
             left: 0;
             background-color: var(--card-bg);
-            min-width: 220px;
+            min-width: 260px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.5);
             border: 1px solid #333;
             border-radius: 8px;
@@ -145,9 +145,10 @@
         /* Features Grid */
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 40px;
             color: var(--primary-orange);
+            line-height: 1.4;
         }
 
         .features-grid {
@@ -201,11 +202,12 @@
         }
 
         .card p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
+            font-weight: 400;
         }
 
-        /* === Pricing Section === */
+        /* Pricing Section */
         .pricing-section {
             text-align: center;
             margin-top: 40px;
@@ -313,7 +315,6 @@
             padding: 0;
         }
 
-        /* ปรับ Layout ให้ตัวหนังสือและค่าตัวแปรอยู่ซ้าย-ขวา */
         .pricing-features li {
             margin-bottom: 12px;
             font-size: 0.8rem;
@@ -336,7 +337,6 @@
             padding-right: 10px;
         }
 
-        /* ไอคอนติ๊กถูก หรือ กากบาท */
         .pricing-features li .feature-name::before {
             content: "✓";
             color: #ff5722;
@@ -347,14 +347,13 @@
 
         .pricing-features li.cross .feature-name::before {
             content: "✕";
-            color: #d32f2f; /* สีแดงสำหรับกากบาท */
+            color: #d32f2f; 
         }
 
         .pricing-features li.cross {
             color: #888;
         }
 
-        /* ค่าข้อมูลฝั่งขวา (เช่น ไม่จำกัด, ✓, ✕) */
         .pricing-features li .feature-val {
             color: #ffb74d;
             font-weight: 600;
@@ -365,7 +364,6 @@
             color: #d32f2f;
         }
 
-        /* กล่องไฮไลท์จุดเด่นด้านล่าง */
         .pricing-highlight {
             background: #221105;
             padding: 15px;
@@ -523,7 +521,6 @@
             margin-bottom: 15px;
             padding-left: 25px;
             position: relative;
-            /* ยกเลิก css ลิสต์ที่ชนกับตารางราคา */
             display: block;
             border-bottom: none;
             font-size: 1rem;
@@ -541,6 +538,43 @@
         .modal-body ul li strong {
             color: white;
         }
+
+        /* === สไตล์สำหรับหน้าทีมงาน === */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            width: 130px;
+        }
+
+        .team-member img {
+            width: 120px !important;
+            height: 120px !important;
+            object-fit: cover;
+            border-radius: 50% !important;
+            border: 3px solid var(--primary-orange) !important;
+            margin-bottom: 15px !important;
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+        .team-member h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -551,25 +585,17 @@
             <li class="nav-item">
                 <a href="#" class="nav-link">ฟีเจอร์เด่น ▾</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal1')">1. AI Food Vision</a></li>
-                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal2')">2. Virtual AI Coach</a></li>
-                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal3')">3. Micro-Workouts</a></li>
-                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal4')">4. ทีมแพทย์ผู้เชี่ยวชาญ</a></li>
-                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal5')">5. Rewards & สิทธิพิเศษ</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">แพ็กเกจ ▾</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-link" onclick="openSubscribeModal('premium')">สมัครแพ็กเกจพรีเมียม</a></li>
-                    <li><a href="#" class="dropdown-link">สำหรับลูกค้าองค์กร</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal1')">1. AI Food Vision & Seamless Delivery</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal2')">2. Virtual AI Coach "Aura"</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal3')">3. Behavioral Trigger & Micro-Workouts</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal4')">4. Standardize & Human-in-the-Loop</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('textModal5')">5. Gamification & Loyalty Rewards</a></li>
                 </ul>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">เกี่ยวกับเรา ▾</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-link">มาตรฐานความปลอดภัย</a></li>
-                    <li><a href="#" class="dropdown-link">ติดต่อทีมงาน</a></li>
+                    <li><a href="#" class="dropdown-link" onclick="openModal('teamModal')">ติดต่อทีมงาน</a></li>
                 </ul>
             </li>
         </ul>
@@ -580,37 +606,40 @@
             <img src="รูปหน้าปก.png" alt="AuraLife App Cover" class="hero-banner">
         </header>
 
-        <h2 class="section-title">5 ฟีเจอร์เด่น ที่จะเปลี่ยนชีวิตคุณ</h2>
+        <h2 class="section-title">
+            5 ฟีเจอร์เด่น<br>
+            <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: 400;">ที่จะเปลี่ยนชีวิตคุณให้ดีขึ้นในทุกวัน</span>
+        </h2>
         
         <div class="features-grid">
             <div class="card" onclick="openModal('modal1')">
                 <div class="card-number">1</div>
                 <h3>AI Food Vision & Seamless Delivery</h3>
-                <p>AI วิเคราะห์อาหารอย่างละเอียด คำนวณโควตาแบบ Real-time และสั่งอาหารผ่านแอปได้ทันที</p>
+                <p>จากแค่ "รู้แคล" สู่ "เสิร์ฟถึงมือ"</p>
             </div>
             
             <div class="card" onclick="openModal('modal2')">
                 <div class="card-number">2</div>
                 <h3>Virtual AI Coach "Aura"</h3>
-                <p>โค้ชส่วนตัวแบบ Voice-Activated พูดคุยด้วยเสียงได้ทุกเรื่องสุขภาพ พร้อมดูแลคุณ 24 ชั่วโมง</p>
+                <p>เพื่อนคู่คิดและโค้ชส่วนตัว แบบ Voice-Activated</p>
             </div>
             
             <div class="card" onclick="openModal('modal3')">
                 <div class="card-number">3</div>
                 <h3>Behavioral Trigger & Micro-Workouts</h3>
-                <p>บันทึก ติดตามผลอัตโนมัติ แจ้งเตือนรู้ใจ พร้อม Micro-Workout สั้นๆ ในแต่ละวัน</p>
+                <p>รู้ใจก่อนที่คุณจะหลุดวินัย</p>
             </div>
             
             <div class="card" onclick="openModal('modal4')">
                 <div class="card-number">4</div>
                 <h3>Standardize & Human-in-the-Loop</h3>
-                <p>มาตรฐานความปลอดภัยระดับสูง ประมวลผลร่วมกับทีมแพทย์และผู้เชี่ยวชาญตัวจริง</p>
+                <p>ฉลาดล้ำด้วย AI มั่นใจด้วยผู้เชี่ยวชาญ</p>
             </div>
             
             <div class="card" onclick="openModal('modal5')">
                 <div class="card-number">5</div>
                 <h3>Gamification & Loyalty Rewards</h3>
-                <p>ยิ่งทำตามเป้าหมาย ยิ่งได้คะแนน รับรางวัลและสิทธิพิเศษมากมาย</p>
+                <p>ยิ่งมีวินัย ยิ่งได้กำไร</p>
             </div>
         </div>
 
@@ -701,6 +730,40 @@
             <p>"สุขภาพดี ไม่ใช่เรื่องยาก" ให้ AuraLife ดูแลคุณในทุกก้าวของชีวิต</p>
             <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 AuraLife. All rights reserved.</p>
         </footer>
+    </div>
+
+    <div id="teamModal" class="modal" style="z-index: 1002;">
+        <div class="modal-content" style="max-width: 900px; text-align: center;">
+            <span class="close-btn" onclick="closeModal('teamModal')">&times;</span>
+            <div class="modal-header">
+                <h2>Our Team</h2>
+                <p style="color: var(--text-muted);">ทีมงานผู้อยู่เบื้องหลัง AuraLife</p>
+            </div>
+            <div class="modal-body">
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="Aoey.jpg" alt="AOEY">
+                        <h4>AOEY</h4>
+                    </div>
+                    <div class="team-member">
+                        <img src="Beer 2.jpg" alt="BEER">
+                        <h4>BEER</h4>
+                    </div>
+                    <div class="team-member">
+                        <img src="Lift.jpg" alt="LIFT">
+                        <h4>LIFT</h4>
+                    </div>
+                    <div class="team-member">
+                        <img src="Nan.jpg" alt="NAN">
+                        <h4>NAN</h4>
+                    </div>
+                    <div class="team-member">
+                        <img src="FAIFA.jpg" alt="FAIFA">
+                        <h4>FAIFA</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="subscribeModal" class="modal">
